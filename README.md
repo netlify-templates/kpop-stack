@@ -30,6 +30,13 @@ netlify init
 
 ## Development
 
+To get started make sure to install all dependencies and configure node with these scripts:
+
+```
+npm install
+npm run postinstall
+```
+
 The Netlify CLI starts your app in development mode, rebuilding assets on file changes.
 
 ```sh
