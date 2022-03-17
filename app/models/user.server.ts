@@ -35,5 +35,6 @@ export async function getProfileByEmail(email: string) {
     return await supabase
     .from("profiles")
     .select("email, id")
-    .eq("email", email);
+    .eq("email", email)
+    .single();
 }
