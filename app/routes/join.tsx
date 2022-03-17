@@ -20,10 +20,10 @@ export const action: ActionFunction = async ({request}) => {
     const password = formData.get("password");
     const redirectTo = formData.get('redirectTo');
     
-    // Add form validations
-
+    // TODO (#17): Add form validations
     const user = await createUser(email, password);
-    return await createUserSession({
+
+    return createUserSession({
         request,
         userId: user.id,
         remember: true,
