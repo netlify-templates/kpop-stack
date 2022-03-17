@@ -12,7 +12,7 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 export async function createUser(email: string, password: string) {
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const {user, error} = await supabase.auth.signUp({
+    const {user} = await supabase.auth.signUp({
         email,
         password: hashedPassword
     });
