@@ -4,4 +4,6 @@ node_modules
 /public/build
 /.netlify
 
+/.env
+
 /app/styles/tailwind.css
