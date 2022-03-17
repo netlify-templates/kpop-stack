@@ -10,7 +10,6 @@ export const meta: MetaFunction = () => {
 
 export const loader: LoaderFunction = async ({ request }) => {
     const userId = await getUserId(request);
-    console.log('Inside loader for Join: ', userId)
     if(userId) return redirect("/")
     return json({});
 }
@@ -24,7 +23,6 @@ export const action: ActionFunction = async ({request}) => {
     // Add form validations
 
     const user = await createUser(email, password);
-    console.log('Inside Join action: ', user)
     return await createUserSession({
         request,
         userId: user.id,

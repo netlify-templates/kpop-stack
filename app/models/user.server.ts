@@ -19,7 +19,7 @@ export async function createUser(email: string, password: string) {
 
     // get the user profile after created
     const {data: profile} = await getProfileByEmail(user?.email);
-    
+
     return profile;
 }
 
@@ -28,7 +28,6 @@ export async function createProfile(id, email) {
     .from("profile")
     .insert([{id, email}])
 
-    console.log('From createProfile: ', data)
     return data
 }
 
