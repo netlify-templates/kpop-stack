@@ -7,7 +7,7 @@
   "scripts": {
     "build": "run-p build:*",
     "build:css": "npm run generate:css -- --minify",
-    "build:remix": "cross-env NODE_ENV=production netlify build --offline",
+    "build:remix": "cross-env NODE_ENV=production remix build",
     "dev": "run-p dev:*",
     "dev:css": "npm run generate:css -- --watch",
     "dev:remix": "cross-env NODE_ENV=development netlify dev",
