@@ -66,7 +66,7 @@ export default function Login() {
         <input type="email" name="email" id="email" />
         <label htmlFor="password">Password</label>
         <input id="password" type="password" name="password" autoComplete="" />
-        <button type="submit">Create Account</button>
+        <button type="submit">Log in</button>
         <input type="hidden" name="redirectTo" value={redirectTo} />
         <div>
           <input id="remember" name="remember" type="checkbox" />
