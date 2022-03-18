@@ -23,12 +23,15 @@ export async function createUser(email: string, password: string) {
     return profile;
 }
 
-export async function createProfile(id, email) {
-    const {data} = await supabase
-    .from("profile")
-    .insert([{id, email}])
+export async function getProfileById(id: string) {
+    const {data, error} = await supabase
+    .from("profiles")
+    .select("email, id")
+    .eq("id", id)
+    .single();
 
-    return data
+    if(error) return null;
+    if(data) return { id: data.id, email: data.email };
 }
 
 export async function getProfileByEmail(email: string) {
