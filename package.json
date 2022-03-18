@@ -19,9 +19,10 @@
   },
   "prettier": {},
   "eslintIgnore": [
+    "/netlify/functions/server",
     "/node_modules",
-    "/server/build",
-    "/public/build"
+    "/public/build",
+    "/server/build"
   ],
   "dependencies": {
     "@netlify/functions": "^0.10.0",
