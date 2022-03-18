@@ -68,12 +68,12 @@ export default function Index() {
               {
                 src: "https://user-images.githubusercontent.com/8431042/158711461-6e770392-84af-47ed-a110-baa1862fbfee.svg",
                 alt: "Netlify",
-                href: "https://netlify.com"
+                href: "https://netlify.com",
               },
               {
                 src: "https://user-images.githubusercontent.com/8431042/158711352-746c52cf-433e-4823-987a-c9d6f4349ce7.svg",
                 alt: "Supabase",
-                href: "https://supabase.com"
+                href: "https://supabase.com",
               },
               {
                 src: "https://user-images.githubusercontent.com/1500684/157764276-a516a239-e377-4a20-b44a-0ac7b65c8c14.svg",
