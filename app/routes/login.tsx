@@ -3,17 +3,18 @@ import {
   Form,
   json,
   Link,
+  LoaderFunction,
   MetaFunction,
   redirect,
   useActionData,
   useSearchParams,
 } from "remix";
+import { verifyLogin } from "~/models/user.server";
 import { createUserSession, getUserId } from "~/session.server";
-import { createUser } from "~/models/user.server";
 
 export const meta: MetaFunction = () => {
   return {
-    title: "Sign Up",
+    title: "Login",
   };
 };
 
@@ -28,21 +29,29 @@ export const action: ActionFunction = async ({ request }) => {
   const email = formData.get("email");
   const password = formData.get("password");
   const redirectTo = formData.get("redirectTo");
+  const remember = formData.get("remember");
 
   // TODO (#17): Add form validations
-  const user = await createUser(email, password);
+  const user = await verifyLogin(email, password);
+
+  if (!user) {
+    return json(
+      { errors: { email: "Invalid email or password" } },
+      { status: 400 }
+    );
+  }
 
   return createUserSession({
     request,
     userId: user.id,
-    remember: false,
-    redirectTo: typeof redirectTo === "string" ? redirectTo : "/",
+    remember: remember === "on" ? true : false,
+    redirectTo: typeof redirectTo === "string" ? redirectTo : "/notes",
   });
 };
 
-export default function Join() {
+export default function Login() {
   const [searchParams] = useSearchParams();
-  const redirectTo = searchParams.get("redirectTo") ?? undefined;
+  const redirectTo = searchParams.get("redirectTo") ?? "/notes";
 
   const actionData = useActionData() as ActionData;
 
@@ -53,7 +62,7 @@ export default function Join() {
   return (
     <div className="flex min-h-full flex-col justify-center">
       <div className="mx-auto w-full max-w-md px-8">
-        <Form className="space-y-6" method="post" noValidate>
+        <Form method="post" className="space-y-6" noValidate>
           <div>
             <label
               className="block text-sm font-medium text-gray-700"
@@ -63,6 +72,7 @@ export default function Join() {
             </label>
             <input
               className="w-full rounded border border-gray-500 px-2 py-1 text-lg"
+              autoComplete="email"
               type="email"
               name="email"
               id="email"
@@ -79,28 +89,39 @@ export default function Join() {
               id="password"
               type="password"
               name="password"
+              autoComplete=""
               className="w-full rounded border border-gray-500 px-2 py-1 text-lg"
-              autoComplete="new-password"
             />
           </div>
           <button
             className="w-full rounded bg-blue-500  py-2 px-4 text-white hover:bg-blue-600 focus:bg-blue-400"
             type="submit"
           >
-            Create Account
+            Log in
           </button>
           <input type="hidden" name="redirectTo" value={redirectTo} />
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center">
+              <input
+                className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                id="remember"
+                name="remember"
+                type="checkbox"
+              />
+              <label
+                className="ml-2 block text-sm text-gray-900"
+                htmlFor="remember"
+              >
+                Remember me
+              </label>
+            </div>
             <div className="text-center text-sm text-gray-500">
-              Already have an account?{" "}
+              Don't have an account?{" "}
               <Link
                 className="text-blue-500 underline"
-                to={{
-                  pathname: "/login",
-                  search: searchParams.toString(),
-                }}
+                to={{ pathname: "/join" }}
               >
-                Log in
+                Sign up
               </Link>
             </div>
           </div>

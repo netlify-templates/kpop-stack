@@ -10,11 +10,9 @@ const supabaseAnonKey = process.env.SUPABASE_ANON_KEY;
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 export async function createUser(email: string, password: string) {
-  const hashedPassword = await bcrypt.hash(password, 10);
-
   const { user } = await supabase.auth.signUp({
     email,
-    password: hashedPassword,
+    password,
   });
 
   // get the user profile after created
@@ -40,4 +38,16 @@ export async function getProfileByEmail(email: string) {
     .select("email, id")
     .eq("email", email)
     .single();
+}
+
+export async function verifyLogin(email: string, password: string) {
+  const { user, error } = await supabase.auth.signIn({
+    email,
+    password,
+  });
+
+  if (error) return undefined;
+  const { data: profile } = await getProfileByEmail(user?.email);
+
+  return profile;
 }
