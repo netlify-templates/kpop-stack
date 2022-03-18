@@ -13,7 +13,7 @@
     "dev:remix": "cross-env NODE_ENV=development netlify dev",
     "format": "prettier --write .",
     "generate:css": "npx tailwindcss -o ./app/styles/tailwind.css",
-    "lint": "eslint --cache-location ./node_modules/.cache/eslint .",
+    "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint .",
     "postinstall": "remix setup node",
     "start": "cross-env NODE_ENV=production netlify dev"
   },
