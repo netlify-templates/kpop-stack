@@ -51,19 +51,61 @@ export default function Join() {
   }, [actionData]);
 
   return (
-    <div>
-      <Form method="post" noValidate>
-        <label htmlFor="email">Email Address</label>
-        <input type="email" name="email" id="email" />
-        <label htmlFor="password">Password</label>
-        <input id="password" type="password" name="password" autoComplete="" />
-        <button type="submit">Create Account</button>
-        <input type="hidden" name="redirectTo" value={redirectTo} />
-        <div>
-          Already have an account?{" "}
-          <Link to={{ pathname: "/login" }}>Log in</Link>
-        </div>
-      </Form>
+    <div className="flex min-h-full flex-col justify-center">
+      <div className="mx-auto w-full max-w-md px-8">
+        <Form className="space-y-6" method="post" noValidate>
+          <div>
+            <label
+              className="block text-sm font-medium text-gray-700"
+              htmlFor="email"
+            >
+              Email Address
+            </label>
+            <input
+              className="w-full rounded border border-gray-500 px-2 py-1 text-lg"
+              type="email"
+              name="email"
+              id="email"
+            />
+          </div>
+          <div>
+            <label
+              className="block text-sm font-medium text-gray-700"
+              htmlFor="password"
+            >
+              Password
+            </label>
+            <input
+              id="password"
+              type="password"
+              name="password"
+              className="w-full rounded border border-gray-500 px-2 py-1 text-lg"
+              autoComplete="new-password"
+            />
+          </div>
+          <button
+            className="w-full rounded bg-blue-500  py-2 px-4 text-white hover:bg-blue-600 focus:bg-blue-400"
+            type="submit"
+          >
+            Create Account
+          </button>
+          <input type="hidden" name="redirectTo" value={redirectTo} />
+          <div className="flex items-center justify-center">
+            <div className="text-center text-sm text-gray-500">
+              Already have an account?{" "}
+              <Link
+                className="text-blue-500 underline"
+                to={{
+                  pathname: "/login",
+                  search: searchParams.toString(),
+                }}
+              >
+                Log in
+              </Link>
+            </div>
+          </div>
+        </Form>
+      </div>
     </div>
   );
 }
