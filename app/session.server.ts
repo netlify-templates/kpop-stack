@@ -37,6 +37,34 @@ export async function getUser(request: Request) {
   throw await logout(request);
 }
 
+/**
+ * Require a user session to get to a page. If none is found
+ * redirect them to the login page. After login, take them to
+ * the original page they wanted to get to.
+ */
+export async function requireUserId(
+  request: Request,
+  redirectTo: string = new URL(request.url).pathname
+) {
+  const userId = await getUserId(request);
+  if (!userId) {
+    const searchParams = new URLSearchParams([["redirectTo", redirectTo]]);
+    throw redirect(`/login?${searchParams}`);
+  }
+
+  return userId;
+}
+
+export async function requireUser(request: Request) {
+  const userId = await requireUserId(request);
+  if (userId == undefined) return null;
+
+  const profile = await getProfileById(userId);
+  if (profile) return profile;
+
+  throw await logout(request);
+}
+
 export async function createUserSession({
   request,
   userId,
