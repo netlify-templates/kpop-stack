@@ -35,7 +35,7 @@ export const action: ActionFunction = async ({ request }) => {
   return createUserSession({
     request,
     userId: user.id,
-    remember: true,
+    remember: false,
     redirectTo: typeof redirectTo === "string" ? redirectTo : "/",
   });
 };
