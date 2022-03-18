@@ -1,7 +1,6 @@
 import { useMemo } from "react";
 import { useMatches } from "remix";
 
-
 export function useMatchesData(id: string) {
   const matchingRoutes = useMatches();
   const route = useMemo(
@@ -13,12 +12,12 @@ export function useMatchesData(id: string) {
 }
 
 export function isUser(user) {
-  return user && typeof user === 'object';
+  return user && typeof user === "object";
 }
 
 export function useOptionalUser() {
   const data = useMatchesData("root");
-  if(!data || !isUser(data.user)) {
+  if (!data || !isUser(data.user)) {
     return undefined;
   }
   return data.user;

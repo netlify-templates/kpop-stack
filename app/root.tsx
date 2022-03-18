@@ -11,7 +11,7 @@ import {
   ScrollRestoration,
 } from "remix";
 
-import tailwindStylesheetUrl from './styles/tailwind.css';
+import tailwindStylesheetUrl from "./styles/tailwind.css";
 import { getUser } from "./session.server";
 
 export const meta: MetaFunction = () => {
@@ -19,16 +19,14 @@ export const meta: MetaFunction = () => {
 };
 
 export const links: LinksFunction = () => {
-  return [
-    { rel: "stylesheet", href: tailwindStylesheetUrl}
-  ]
-}
+  return [{ rel: "stylesheet", href: tailwindStylesheetUrl }];
+};
 
-export const loader: LoaderFunction = async ({request}) => {
+export const loader: LoaderFunction = async ({ request }) => {
   return json({
-    user: await getUser(request)
+    user: await getUser(request),
   });
-}
+};
 
 export default function App() {
   return (
