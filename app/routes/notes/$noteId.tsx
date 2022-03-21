@@ -1,5 +1,5 @@
-import { Form, json, useLoaderData } from "remix";
-import { getNote } from "~/models/note.server";
+import { Form, json, redirect, useLoaderData } from "remix";
+import { deleteNote, getNote } from "~/models/note.server";
 import { requireUserId } from "~/session.server";
 
 export const loader: LoaderFunction = async ({ request, params }) => {
@@ -11,6 +11,14 @@ export const loader: LoaderFunction = async ({ request, params }) => {
   }
 
   return json({ note });
+};
+
+export const action: ActionFunction = async ({ request, params }) => {
+  const userId = await requireUserId(request);
+
+  await deleteNote({ userId, id: params.noteId });
+
+  return redirect("/notes");
 };
 
 export default function NoteDetailsPage() {
