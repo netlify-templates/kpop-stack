@@ -8,3 +8,36 @@ export async function getNoteListItems({ userId }: { userId: string }) {
 
   return data;
 }
+
+export async function deleteNote({ id, userId }) {
+  const { error } = await supabase
+    .from("notes")
+    .delete({ returning: "minimal" })
+    .match({ id, profile_id: userId });
+
+  if (!error) {
+    return {};
+  }
+
+  return null;
+}
+
+export async function getNote({ id, userId }) {
+  const { data, error } = await supabase
+    .from("notes")
+    .select("*")
+    .eq("profile_id", userId)
+    .eq("id", id)
+    .single();
+
+  if (!error) {
+    return {
+      userId: data.profile_id,
+      id: data.id,
+      title: data.title,
+      body: data.title,
+    };
+  }
+
+  return null;
+}
