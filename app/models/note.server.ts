@@ -48,7 +48,7 @@ export async function getNote({ id, userId }) {
       userId: data.profile_id,
       id: data.id,
       title: data.title,
-      body: data.title,
+      body: data.body,
     };
   }
 
