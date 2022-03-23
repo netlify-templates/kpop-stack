@@ -1,59 +1,38 @@
-# Welcome to Remix!
+# Remix K-pop Stack
 
-- [Remix Docs](https://remix.run/docs)
+![k-pop image]()
 
-## Netlify Setup
+Deployed Site: [kpop-stack.netlify.app](https://kpop-stack.netlify.app)
 
-1. Install the [Netlify CLI](https://www.netlify.com/products/dev/):
+Learn more about [Remix Stacks](https://remix.run/stacks).
 
-```sh
-npm i -g netlify-cli
+```
+npx create-remix --template remix-run/kpop-stack
 ```
 
-If you have previously installed the Netlify CLI, you should update it to the latest version:
+## What's in the stack
+- [Netlify](https://netlify.com/) deployment
+- [Supabase](https://supabase.com/) 
+- [Tailwind](https://tailwindcss.com/) for styling
+- [Cypress](https://cypress.io) end-to-end testing
+- [Prettier](https://prettier.io) code formatting
+- [ESLint](https://eslint.org) linting
+- [TypeScript](https://typescriptlang.org) static typing
 
-```sh
-npm i -g netlify-cli@latest
-```
-
-2. Sign up and log in to Netlify:
-
-```sh
-netlify login
-```
-
-3. Create a new site:
-
-```sh
-netlify init
-```
+Not a fan of bits of the stack? Fork it, change it, and use `npx create-remix --template your/repo`! Make it your own.
 
 ## Development
 
-To get started make sure to install all dependencies and configure node with these scripts:
+- Validate the app has been set up properly (optional):
 
-```
-npm install
-npm run postinstall
-```
+  ```sh
+  npm run validate
+  ```
 
-The Netlify CLI starts your app in development mode, rebuilding assets on file changes.
+- Start dev server:
 
-```sh
-npm run dev
-```
+  ```sh
+  npm run dev
+  ```
 
-Open up [http://localhost:3000](http://localhost:3000), and you should be ready to go!
-
-## Deployment
-
-There are two ways to deploy your app to Netlify, you can either link your app to your git repo and have it auto deploy changes to Netlify, or you can deploy your app manually. If you've followed the setup instructions already, all you need to do is run this:
-
-```sh
-$ npm run build
-# preview deployment
-$ netlify deploy
-
-# production deployment
-$ netlify deploy --prod
-```
+This starts your app in development mode, rebuilding assets on file changes.
