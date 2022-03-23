@@ -9,6 +9,19 @@ export async function getNoteListItems({ userId }: { userId: string }) {
   return data;
 }
 
+export async function createNote({ title, body, userId }) {
+  const { data, error } = await supabase
+    .from("notes")
+    .insert([{ title, body, profile_id: userId }])
+    .single();
+
+  if (!error) {
+    return data;
+  }
+
+  return null;
+}
+
 export async function deleteNote({ id, userId }) {
   const { error } = await supabase
     .from("notes")
@@ -35,7 +48,7 @@ export async function getNote({ id, userId }) {
       userId: data.profile_id,
       id: data.id,
       title: data.title,
-      body: data.title,
+      body: data.body,
     };
   }
 
