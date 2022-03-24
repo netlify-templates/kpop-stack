@@ -1,3 +1,4 @@
+import React from "react";
 import {
   ActionFunction,
   Form,
@@ -11,6 +12,7 @@ import {
 } from "remix";
 import { verifyLogin } from "~/models/user.server";
 import { createUserSession, getUserId } from "~/session.server";
+import { validateEmail } from "~/utils";
 
 export const meta: MetaFunction = () => {
   return {
@@ -31,7 +33,24 @@ export const action: ActionFunction = async ({ request }) => {
   const redirectTo = formData.get("redirectTo");
   const remember = formData.get("remember");
 
-  // TODO (#17): Add form validations
+  if (!validateEmail(email)) {
+    return json({ errors: { email: "Email is invalid." } }, { status: 400 });
+  }
+
+  if (typeof password !== "string") {
+    return json(
+      { errors: { password: "Password is required." } },
+      { status: 400 }
+    );
+  }
+
+  if (password.length < 6) {
+    return json(
+      { errors: { password: "Password is too short" } },
+      { status: 400 }
+    );
+  }
+
   const user = await verifyLogin(email, password);
 
   if (!user) {
@@ -54,9 +73,17 @@ export default function Login() {
   const redirectTo = searchParams.get("redirectTo") ?? "/notes";
 
   const actionData = useActionData() as ActionData;
+  const emailRef = React.useRef(null);
+  const passwordRef = React.useRef(null);
 
   React.useEffect(() => {
-    // Handle form validations here
+    if (actionData?.errors?.email) {
+      emailRef?.current?.focus();
+    }
+
+    if (actionData?.errors?.password) {
+      passwordRef?.current?.focus();
+    }
   }, [actionData]);
 
   return (
@@ -64,11 +91,13 @@ export default function Login() {
       <div className="mx-auto w-full max-w-md px-8">
         <Form method="post" className="space-y-6" noValidate>
           <div>
-            <label
-              className="block text-sm font-medium text-gray-700"
-              htmlFor="email"
-            >
-              Email Address
+            <label className="text-sm font-medium" htmlFor="email">
+              <span className="block text-gray-700">Email Address</span>
+              {actionData?.errors?.email && (
+                <span className="block pt-1 text-red-700" id="email-error">
+                  {actionData?.errors?.email}
+                </span>
+              )}
             </label>
             <input
               className="w-full rounded border border-gray-500 px-2 py-1 text-lg"
@@ -76,14 +105,22 @@ export default function Login() {
               type="email"
               name="email"
               id="email"
+              aria-invalid={actionData?.errors?.email ? true : undefined}
+              aria-describedby="email-error"
+              ref={emailRef}
             />
           </div>
           <div>
-            <label
-              className="block text-sm font-medium text-gray-700"
-              htmlFor="password"
-            >
-              Password
+            <label className="text-sm font-medium" htmlFor="password">
+              <span className="block text-gray-700">Password</span>
+              <span className="block font-light text-gray-700">
+                Must have at least 6 characters.
+              </span>
+              {actionData?.errors?.password && (
+                <span className="pt-1 text-red-700" id="password-error">
+                  {actionData?.errors?.password}
+                </span>
+              )}
             </label>
             <input
               id="password"
@@ -91,6 +128,9 @@ export default function Login() {
               name="password"
               autoComplete=""
               className="w-full rounded border border-gray-500 px-2 py-1 text-lg"
+              aria-invalid={actionData?.errors?.password ? true : undefined}
+              aria-describedby="password-error"
+              ref={passwordRef}
             />
           </div>
           <button
