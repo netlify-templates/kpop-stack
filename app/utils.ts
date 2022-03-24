@@ -32,3 +32,7 @@ export function useUser() {
   }
   return maybeUser;
 }
+
+export function validateEmail(email: unknown): Boolean {
+  return typeof email === "string" && email.length > 3 && email.includes("@");
+}
