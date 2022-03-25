@@ -38,7 +38,7 @@ export const action: ActionFunction = async ({ request }) => {
   // What if a user sends us a password through other means than our form?
   if (typeof password !== "string") {
     return json(
-      { errors: { password: "Password is required." } },
+      { errors: { password: "Valid password is required." } },
       { status: 400 }
     );
   }
