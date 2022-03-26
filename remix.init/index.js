@@ -2,6 +2,8 @@ const crypto = require("crypto");
 const fs = require("fs/promises");
 const path = require("path");
 
+const sort = require("sort-package-json");
+
 function escapeRegExp(string) {
   // $& means the whole matched string
   return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -22,6 +24,7 @@ async function main({ rootDirectory }) {
   const EXAMPLE_ENV_PATH = path.join(rootDirectory, ".env.sample");
   const ENV_PATH = path.join(rootDirectory, ".env");
   const README_PATH = path.join(rootDirectory, "README.md");
+  const PACKAGE_JSON_PATH = path.join(rootDirectory, "package.json");
 
   const REPLACER = "kpop-stack-template";
 
@@ -31,9 +34,10 @@ async function main({ rootDirectory }) {
     // get rid of anything that's not allowed in an app name
     .replace(/[^a-zA-Z0-9-_]/g, "-");
 
-  const [env, readme] = await Promise.all([
+  const [env, readme, packageJson] = await Promise.all([
     fs.readFile(EXAMPLE_ENV_PATH, "utf-8"),
     fs.readFile(README_PATH, "utf-8"),
+    fs.readFile(PACKAGE_JSON_PATH, "utf-8"),
   ]);
 
   // Create a new env file with all the necessary keys.
@@ -51,9 +55,18 @@ async function main({ rootDirectory }) {
     APP_NAME
   );
 
+  // Parse the package file and rename the application name
+  const newPackageJson =
+    JSON.stringify(
+      sort({ ...JSON.parse(packageJson), name: APP_NAME }),
+      null,
+      2
+    ) + "\n";
+
   await Promise.all([
     fs.writeFile(ENV_PATH, newEnv),
     fs.writeFile(README_PATH, newReadme),
+    fs.writeFile(PACKAGE_JSON_PATH, newPackageJson),
   ]);
 }
 
