@@ -16,7 +16,7 @@ export async function createUser(email: string, password: string) {
   });
 
   // get the user profile after created
-  const { data: profile } = await getProfileByEmail(user?.email);
+  const profile = await getProfileByEmail(user?.email);
 
   return profile;
 }
@@ -33,11 +33,14 @@ export async function getProfileById(id: string) {
 }
 
 export async function getProfileByEmail(email: string) {
-  return await supabase
+  const { data, error } = await supabase
     .from("profiles")
     .select("email, id")
     .eq("email", email)
     .single();
+
+  if (error) return null;
+  if (data) return data;
 }
 
 export async function verifyLogin(email: string, password: string) {
@@ -47,7 +50,7 @@ export async function verifyLogin(email: string, password: string) {
   });
 
   if (error) return undefined;
-  const { data: profile } = await getProfileByEmail(user?.email);
+  const profile = await getProfileByEmail(user?.email);
 
   return profile;
 }
