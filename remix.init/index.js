@@ -68,6 +68,16 @@ async function main({ rootDirectory }) {
     fs.writeFile(README_PATH, newReadme),
     fs.writeFile(PACKAGE_JSON_PATH, newPackageJson),
   ]);
+
+  console.log(
+    `
+Setup is almost complete. Follow these steps to finish initialization:
+- Run the first build (this generates the server you will run):
+  npm run build
+- You're now ready to rock and roll 🤘
+  npm run dev
+    `.trim()
+  );
 }
 
 module.exports = main;
