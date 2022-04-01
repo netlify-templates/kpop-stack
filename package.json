@@ -42,6 +42,7 @@
   "devDependencies": {
     "@remix-run/dev": "^1.2.3",
     "@remix-run/eslint-config": "^1.2.3",
+    "@testing-library/cypress": "^8.0.2",
     "@types/bcryptjs": "^2.4.2",
     "@types/react": "^17.0.24",
     "@types/react-dom": "^17.0.9",
