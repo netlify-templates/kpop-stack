@@ -91,6 +91,93 @@ Running `npm run dev` will also trigger the Netlify local development environmen
 - share a live session via url with `netlify dev --live`
 - [and more](https://cli.netlify.com/netlify-dev/) :)
 
+## Database
+
+This project uses [Supabase](https://supabase.com/) for data storage and user authentication. 
+
+You can add your Supabase keys...
+
+<details>
+<summary>Database creation</summary>
+
+- You can sign up with Supabase with your GitHub credentials
+- Create a new project on the 'Project' page
+
+
+  ![CleanShot 2022-03-31 at 11 54 36](https://user-images.githubusercontent.com/8431042/161098029-b2651160-29c5-42fc-a149-a12cc4f2b339.png)
+
+- Next you will need to name the database and makes sure to save the password you select, then you will want to choose a region closes to you
+
+  ![CleanShot 2022-03-31 at 11 55 47](https://user-images.githubusercontent.com/8431042/161098251-8d73f0ab-c9e7-4a78-921e-1dcf65d9ad1c.png)
+
+- It will take some time for the project to be fully scaffold so you will need to wait before the next steps.
+
+</details>
+
+<details>
+<summary>SQL Queries</summary>
+
+- In your Supabase project dashboard, you can find the SQL Editor here
+
+  ![CleanShot 2022-03-31 at 11 57 16](https://user-images.githubusercontent.com/8431042/161098529-9f6fc807-a413-49af-bfc1-1c16a2c4ae2f.png)
+
+- Select "New Query"
+
+  ![CleanShot 2022-03-31 at 11 59 29](https://user-images.githubusercontent.com/8431042/161098865-7c790cbc-db76-45b3-aa75-270af70038ae.png)
+
+- Here are the SQL queries used in the K-pop Stack
+  ```sql
+  -- Create public profile table that references our auth.user
+  create table public.profiles (
+    id uuid references auth.users not null,
+    created_at timestamptz not null default current_timestamp,
+    email varchar not null,
+  
+    primary key (id)
+  );
+  
+  -- Create public notes table
+  create table public.notes (
+    id uuid not null default uuid_generate_v4(),
+    title text,
+    body text,
+    created_at timestamp default current_timestamp,
+    updated_at timestamp default current_timestamp,
+    profile_id uuid references public.profiles not null,
+  
+    primary key (id)
+  );
+  
+  -- inserts a row into public.users
+  create or replace function public.handle_new_user() 
+  returns trigger 
+  language plpgsql 
+  security definer set search_path = public
+  as $$
+  begin
+    insert into public.profiles (id, email)
+    values (new.id, new.email);
+    return new;
+  end;
+  $$;
+  
+  -- trigger the function every time a user is created
+  drop trigger if exists on_auth_user_created on auth.user;
+  create trigger on_auth_user_created
+    after insert on auth.users
+    for each row execute procedure public.handle_new_user();
+  ```
+
+- You can copy these over to the SQL Editor and click the 'Run' button 
+
+  ![CleanShot 2022-03-31 at 12 04 31](https://user-images.githubusercontent.com/8431042/161099881-79315a5f-af33-44fc-aee4-daf9a506f23f.png)
+
+- Lastly, you will need to go to 'Authentication and Settings', and switch off "Enable email confirmations" for the project
+
+  ![CleanShot 2022-03-31 at 12 07 47](https://user-images.githubusercontent.com/8431042/161100637-11b7a1f0-9e25-4f1b-8fec-46ebaf047063.png)
+
+</details>
+
 ## Testing
 
 ### Cypress
