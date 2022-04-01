@@ -1,6 +1,6 @@
 # Remix K-pop Stack
 
-![k-pop image]()
+![k-pop site image](https://res.cloudinary.com/dzkoxrsdj/image/upload/v1648844684/CleanShot_2022-04-01_at_16.23.40_2x_oo3ppe.jpg)
 
 Deployed Site: [kpop-stack.netlify.app](https://kpop-stack.netlify.app)
 
@@ -18,8 +18,6 @@ Click this button to create a new Github repo, new Netlify project and deploy th
 - [Supabase](https://supabase.com/) database and authentication
 - [Tailwind](https://tailwindcss.com/) for styling
 - [Cypress](https://cypress.io) end-to-end testing
-- [MSW](https://mswjs.io/) for local, third-party request mocking
-- [Vitest](https://vitest.dev) and [Testing Library](https://testing-library.com) unit testing
 - [Prettier](https://prettier.io) code formatting
 - [ESLint](https://eslint.org) linting
 - [TypeScript](https://typescriptlang.org) static typing
@@ -97,36 +95,13 @@ Running `npm run dev` will also trigger the Netlify local development environmen
 
 ### Cypress
 
-We use Cypress for our End-to-End tests in this project. You'll find those in the `cypress` directory. As you make changes, add to an existing file or create a new file in the `cypress/e2e` directory to test your changes.
+We have set up the basic configuration files for [Cypress](https://go.cypress.io/) End-to-End tests in this project. You'll find those in the `cypress` directory. As you make changes, add to an existing file or create a new file in the `cypress/integrations` directory to test your changes.
 
 We use [`@testing-library/cypress`](https://testing-library.com/cypress) for selecting elements on the page semantically.
 
-To run these tests in development, run `npm run test:e2e:dev` which will start the dev server for the app as well as the Cypress client. Make sure the database is running in docker as described above.
+To run these tests in development, run `npm run e2e-test` which will start the dev server for the app as well as the Cypress client.
 
-We have a utility for testing authenticated features without having to go through the login flow:
-
-```ts
-cy.login();
-// you are now logged in as a new user
-```
-
-We also have a utility to auto-delete the user at the end of your test. Just make sure to add this in each test file:
-
-```ts
-afterEach(() => {
-  cy.cleanupUser();
-});
-```
-
-That way, we can keep your local db clean and keep your tests isolated from one another.
-
-### Vitest
-
-For lower level tests of utilities and individual components, we use `vitest`. We have DOM-specific assertion helpers via [`@testing-library/jest-dom`](https://testing-library.com/jest-dom).
-
-### Type Checking
-
-This project uses TypeScript. It's recommended to get TypeScript set up for your editor to get a really great in-editor experience with type checking and auto-complete. To run type checking across the whole project, run `npm run typecheck`.
+To other example of Cypress tests specifically on Remix stacks, check out the `cypress` directory in the [Remix Grunge Stack example](https://github.com/remix-run/grunge-stack/tree/main/cypress).
 
 ### Linting
 
