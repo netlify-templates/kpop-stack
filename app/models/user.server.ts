@@ -42,7 +42,7 @@ export async function getProfileById(id: string) {
   if (data) return { id: data.id, email: data.email };
 }
 
-export async function getProfileByEmail(email: string | undefined) {
+export async function getProfileByEmail(email?: string) {
   const { data, error } = await supabase
     .from("profiles")
     .select("email, id")
