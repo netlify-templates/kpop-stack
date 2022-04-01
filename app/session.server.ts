@@ -1,5 +1,11 @@
 import { createCookieSessionStorage, redirect } from "remix";
+import invariant from "tiny-invariant";
 import { getProfileById } from "./models/user.server";
+
+invariant(
+  process.env.SESSION_SECRET,
+  "SESSION_SECRET must be set in your environment variables."
+);
 
 export const sessionStorage = createCookieSessionStorage({
   cookie: {

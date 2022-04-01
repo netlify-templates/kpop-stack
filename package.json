@@ -16,6 +16,7 @@
     "generate:css": "npx tailwindcss -o ./app/styles/tailwind.css",
     "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint .",
     "postinstall": "remix setup node",
+    "typecheck": "tsc -b",
     "start": "cross-env NODE_ENV=production netlify dev"
   },
   "prettier": {},
@@ -37,7 +38,8 @@
     "prettier-plugin-tailwindcss": "^0.1.8",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "remix": "*"
+    "remix": "*",
+    "tiny-invariant": "^1.2.0"
   },
   "devDependencies": {
     "@remix-run/dev": "^1.2.3",
@@ -51,7 +53,7 @@
     "eslint": "^8.9.0",
     "npm-run-all": "^4.1.5",
     "tailwindcss": "^3.0.23",
-    "typescript": "^4.5.5"
+    "typescript": "^4.6.3"
   },
   "engines": {
     "node": ">=14"
