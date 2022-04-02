@@ -11,7 +11,7 @@
     "dev": "run-p dev:*",
     "dev:css": "npm run generate:css -- --watch",
     "dev:remix": "cross-env NODE_ENV=development netlify dev",
-    "e2e-test": "cypress open",
+    "e2e-test": "cypress run",
     "format": "prettier --write .",
     "generate:css": "npx tailwindcss -o ./app/styles/tailwind.css",
     "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint .",
