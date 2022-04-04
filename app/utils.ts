@@ -1,6 +1,5 @@
 import { useMemo } from "react";
 import { useMatches } from "remix";
-import { User } from "./models/user.server";
 
 export function useMatchesData(id: string) {
   const matchingRoutes = useMatches();
@@ -12,7 +11,7 @@ export function useMatchesData(id: string) {
   return route?.data;
 }
 
-export function isUser(user: User) {
+export function isUser(user) {
   return user && typeof user === "object";
 }
 
@@ -34,6 +33,6 @@ export function useUser() {
   return maybeUser;
 }
 
-export function validateEmail(email: unknown): email is string {
+export function validateEmail(email: unknown): Boolean {
   return typeof email === "string" && email.length > 3 && email.includes("@");
 }

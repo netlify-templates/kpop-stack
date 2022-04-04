@@ -1,13 +1,6 @@
-import { supabase, User } from "./user.server";
+import { supabase } from "./user.server";
 
-export type Note = {
-  id: string;
-  title: string;
-  body: string;
-  profile_id: string;
-};
-
-export async function getNoteListItems({ userId }: { userId: User["id"] }) {
+export async function getNoteListItems({ userId }: { userId: string }) {
   const { data } = await supabase
     .from("notes")
     .select("id, title")
@@ -16,11 +9,7 @@ export async function getNoteListItems({ userId }: { userId: User["id"] }) {
   return data;
 }
 
-export async function createNote({
-  title,
-  body,
-  userId,
-}: Pick<Note, "body" | "title"> & { userId: User["id"] }) {
+export async function createNote({ title, body, userId }) {
   const { data, error } = await supabase
     .from("notes")
     .insert([{ title, body, profile_id: userId }])
@@ -33,10 +22,7 @@ export async function createNote({
   return null;
 }
 
-export async function deleteNote({
-  id,
-  userId,
-}: Pick<Note, "id"> & { userId: User["id"] }) {
+export async function deleteNote({ id, userId }) {
   const { error } = await supabase
     .from("notes")
     .delete({ returning: "minimal" })
@@ -49,10 +35,7 @@ export async function deleteNote({
   return null;
 }
 
-export async function getNote({
-  id,
-  userId,
-}: Pick<Note, "id"> & { userId: User["id"] }) {
+export async function getNote({ id, userId }) {
   const { data, error } = await supabase
     .from("notes")
     .select("*")

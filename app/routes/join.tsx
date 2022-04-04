@@ -3,7 +3,6 @@ import {
   Form,
   json,
   Link,
-  LoaderFunction,
   MetaFunction,
   redirect,
   useActionData,
@@ -12,20 +11,12 @@ import {
 import { createUserSession, getUserId } from "~/session.server";
 import { createUser, getProfileByEmail } from "~/models/user.server";
 import { validateEmail } from "~/utils";
-import * as React from "react";
 
 export const meta: MetaFunction = () => {
   return {
     title: "Sign Up",
   };
 };
-
-interface ActionData {
-  errors: {
-    email?: string;
-    password?: string;
-  };
-}
 
 export const loader: LoaderFunction = async ({ request }) => {
   const userId = await getUserId(request);
@@ -41,10 +32,7 @@ export const action: ActionFunction = async ({ request }) => {
 
   // Ensure the email is valid
   if (!validateEmail(email)) {
-    return json<ActionData>(
-      { errors: { email: "Email is invalid." } },
-      { status: 400 }
-    );
+    return json({ errors: { email: "Email is invalid." } }, { status: 400 });
   }
 
   // What if a user sends us a password through other means than our form?
@@ -57,7 +45,7 @@ export const action: ActionFunction = async ({ request }) => {
 
   // Enforce minimum password length
   if (password.length < 6) {
-    return json<ActionData>(
+    return json(
       { errors: { password: "Password is too short." } },
       { status: 400 }
     );
@@ -67,7 +55,7 @@ export const action: ActionFunction = async ({ request }) => {
   // and we should communicate that well
   const existingUser = await getProfileByEmail(email);
   if (existingUser) {
-    return json<ActionData>(
+    return json(
       { errors: { email: "A user already exists with this email." } },
       { status: 400 }
     );
@@ -88,8 +76,8 @@ export default function Join() {
   const redirectTo = searchParams.get("redirectTo") ?? undefined;
 
   const actionData = useActionData() as ActionData;
-  const emailRef = React.useRef<HTMLInputElement>(null);
-  const passwordRef = React.useRef<HTMLInputElement>(null);
+  const emailRef = React.useRef(null);
+  const passwordRef = React.useRef(null);
 
   React.useEffect(() => {
     if (actionData?.errors?.email) {
