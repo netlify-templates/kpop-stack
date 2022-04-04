@@ -34,6 +34,6 @@ export function useUser() {
   return maybeUser;
 }
 
-export function validateEmail(email: unknown): Boolean {
+export function validateEmail(email: unknown): email is string {
   return typeof email === "string" && email.length > 3 && email.includes("@");
 }
