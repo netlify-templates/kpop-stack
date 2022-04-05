@@ -7,9 +7,13 @@ import {
   Outlet,
   useLoaderData,
 } from "remix";
-import { getNoteListItems } from "~/models/note.server";
+import { getNoteListItems, Note } from "~/models/note.server";
 import { requireUserId } from "~/session.server";
 import { useUser } from "~/utils";
+
+type LoaderData = {
+  noteListItems: Note[];
+};
 
 export const loader: LoaderFunction = async ({ request }) => {
   const userId = await requireUserId(request);

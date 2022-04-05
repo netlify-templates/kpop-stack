@@ -20,6 +20,13 @@ export const meta: MetaFunction = () => {
   };
 };
 
+interface ActionData {
+  errors: {
+    email?: string;
+    password?: string;
+  };
+}
+
 export const loader: LoaderFunction = async ({ request }) => {
   const userId = await getUserId(request);
   if (userId) return redirect("/");
@@ -73,8 +80,8 @@ export default function Login() {
   const redirectTo = searchParams.get("redirectTo") ?? "/notes";
 
   const actionData = useActionData() as ActionData;
-  const emailRef = React.useRef(null);
-  const passwordRef = React.useRef(null);
+  const emailRef = React.useRef<HTMLInputElement>(null);
+  const passwordRef = React.useRef<HTMLInputElement>(null);
 
   React.useEffect(() => {
     if (actionData?.errors?.email) {
