@@ -30,7 +30,7 @@ Not a fan of bits of the stack? Fork it, change it, and use `npx create-remix --
 
 ## Development
 
-- Install all dependencise & the [Netlify CLI](https://docs.netlify.com/cli/get-started/):
+- Install all dependencies & the [Netlify CLI](https://docs.netlify.com/cli/get-started/):
 
   ```sh
   npm install
@@ -43,17 +43,18 @@ Not a fan of bits of the stack? Fork it, change it, and use `npx create-remix --
   netlify init
   ```
 
-- Add your Supabase environment variables to a `.env` file like [`.env.sample`](./.env.sample) file or through the Netlify project dashboard at [https://app.netlify.com/](https://app.netlify.com/) Site settings/Build & deploy/Environment:
+- Add your Supabase and session environment variables to a `.env` file like [`.env.sample`](./.env.sample) file or through the Netlify project dashboard at [https://app.netlify.com/](https://app.netlify.com/) Site settings/Build & deploy/Environment:
 
   ```
   SUPABASE_URL=""
   SUPABASE_ANON_KEY=""
+  SESSION_SECRET=""
   ```
 
   <details>
   <summary>Environment Variable list in project dashboard.</summary>
 
-  ![screenshot of env vars in Netlify UI](https://res.cloudinary.com/dzkoxrsdj/image/upload/v1649190710/Screen_Shot_2022-04-05_at_4.31.09_PM_m4rmer.jpg)
+  ![screenshot of env vars in Netlify UI](https://res.cloudinary.com/dzkoxrsdj/image/upload/v1649265873/CleanShot_2022-04-06_at_13.23.38_2x_sh3hoy.jpg)
 
   </details>
 
@@ -76,7 +77,7 @@ Running `npm run dev` will also trigger the Netlify local development environmen
 
 ### Relevant code:
 
-This is a pretty simple note-taking app, but it's a good example of how you can build a full stack app with Architect and Remix. The main functionality is creating users, logging in and out, and creating and deleting notes.
+This is a pretty simple note-taking app, but it's a good example of how you can build a full stack app with Remix and Supabase. The main functionality is creating users, logging in and out, and creating and deleting notes.
 
 - creating users, and logging in and out [./app/models/user.server.ts](./app/models/user.server.ts)
 - user sessions, and verifying them [./app/session.server.ts](./app/session.server.ts)
@@ -219,17 +220,11 @@ npm install netlify-cli -g # to install the Netlify CLI tool globally
 netlify init # initialize a new Netlify project & deploy
 ```
 
-One the CLI is installed you can also create a site using the `sites:create-template` command:
-
-```sh
-netlify sites:create-template kpop-stack
-```
-
 ### CI/CD
 
 Using the 'Deploy to Netlify' button or the `init` process will also set up continuous deployment for your project so that a new build will be triggered & deployed when you push code to the repo (you can change this from your project dashboard: Site Settings/Build & deploy/Continuous Deployment).
 
-You can also use `netlify deploy (--prod)` to manually deploy and `netlify open` to open your project dashboard.
+You can also use `netlify deploy` or `netlify deploy --prod` to manually deploy then `netlify open` to open your project dashboard.
 
 > 💡 If you don't use `--prod` on the deploy command you will deploy a preview of your application with a link to share with teammates to see the site deployed without deploying to production
 
