@@ -7,7 +7,7 @@ Deployed Site: [kpop-stack.netlify.app](https://kpop-stack.netlify.app)
 Learn more about [Remix Stacks](https://remix.run/stacks).
 
 ```
-npx create-remix --template remix-run/kpop-stack
+npx create-remix --template netlify-templates/kpop-stack
 ```
 
 Click this button to create a new Github repo, new Netlify project and deploy this stack to a [CDN](https://jamstack.org/glossary/cdn/).
