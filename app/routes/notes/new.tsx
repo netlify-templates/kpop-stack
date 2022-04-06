@@ -1,5 +1,5 @@
-import { ActionFunction, json } from "remix";
-import { Form, redirect } from "remix";
+import type { ActionFunction } from "remix";
+import { Form, redirect, json } from "remix";
 import { createNote } from "~/models/note.server";
 import { requireUserId } from "~/session.server";
 

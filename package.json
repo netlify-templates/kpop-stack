@@ -16,8 +16,8 @@
     "generate:css": "npx tailwindcss -o ./app/styles/tailwind.css",
     "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint .",
     "postinstall": "remix setup node",
-    "typecheck": "tsc -b",
-    "start": "cross-env NODE_ENV=production netlify dev"
+    "start": "cross-env NODE_ENV=production netlify dev",
+    "typecheck": "tsc -b"
   },
   "prettier": {},
   "eslintIgnore": [
@@ -29,7 +29,6 @@
   "dependencies": {
     "@netlify/functions": "^0.10.0",
     "@remix-run/netlify": "^1.2.3",
-    "@remix-run/node": "^1.3.4",
     "@remix-run/react": "^1.2.3",
     "@supabase/supabase-js": "^1.31.1",
     "@types/eslint": "^8.4.1",
