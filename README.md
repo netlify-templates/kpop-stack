@@ -43,11 +43,9 @@ Not a fan of bits of the stack? Fork it, change it, and use `npx create-remix --
   netlify init
   ```
 
-- Add your Supabase environment variables to the [`./.env.sample`](./.env.sample) file or through the Netlify project dashboard at [https://app.netlify.com/](https://app.netlify.com/) Site settings/Build & deploy/Environment:
+- Add your Supabase environment variables to a `.env` file like [`.env.sample`](./.env.sample) file or through the Netlify project dashboard at [https://app.netlify.com/](https://app.netlify.com/) Site settings/Build & deploy/Environment:
 
   ```
-  DATABASE_URL=""
-  SESSION_SECRET=""
   SUPABASE_URL=""
   SUPABASE_ANON_KEY=""
   ```
@@ -92,32 +90,14 @@ This project uses [Supabase](https://supabase.com/) for data storage and user au
 
 ### Environment Variables
 
-You will need these 4 environment variables to connec to your Supabase instance:
-
-- `DATABASE_URL`: `postgresql://postgres:[YOUR-PASSWORD]@db.[DB-HOST].supabase.co:5432/postgres`
-
-  Found in Settings/Database/Connection string (bottom of page) under URI
-  <details><summary> See screenshot</summary>
-    
-    ![databoase url location](https://res.cloudinary.com/dzkoxrsdj/image/upload/v1649192671/Screen_Shot_2022-04-05_at_5.01.35_PM_lxgeva.jpg)
-
-  </details>
-
-- `SESSION_SECRET`:
-
-  Found in
-  <details><summary> See screenshot</summary>
-    
-    ![session location]()
-
-  </details>
+You will need these 2 environment variables to connect to your Supabase instance:
 
 - `SUPABASE_ANON_KEY`:
 
   Found in Settings/API/Project API keys
   <details><summary> See screenshot</summary>
     
-    ![databoase url location](https://res.cloudinary.com/dzkoxrsdj/image/upload/v1649193447/Screen_Shot_2022-04-05_at_5.15.45_PM_ipdgcc.jpg)
+    ![supabase anon key location](https://res.cloudinary.com/dzkoxrsdj/image/upload/v1649193447/Screen_Shot_2022-04-05_at_5.15.45_PM_ipdgcc.jpg)
 
   </details>
 
@@ -126,11 +106,13 @@ You will need these 4 environment variables to connec to your Supabase instance:
   Found in Settings/API/Configuration/URL
   <details><summary> See screenshot</summary>
     
-    ![databoase url location](https://res.cloudinary.com/dzkoxrsdj/image/upload/v1649193610/Screen_Shot_2022-04-05_at_5.18.12_PM_sj7mj8.jpg)
+    ![supabase url location](https://res.cloudinary.com/dzkoxrsdj/image/upload/v1649193610/Screen_Shot_2022-04-05_at_5.18.12_PM_sj7mj8.jpg)
 
   </details>
 
-You can add your Supabase keys to an `.env` file (like shown in the sample [`.env.sample`](./.env.sample)) which will not be committed publicly because it is added to the `.gitignore` file. Or you can add it to your Netlify project environment variables (Site settings/Build & deploy/Environment) as shown in the [Development section](#development) so that they can be [easily shared with teammates](https://www.netlify.com/blog/2021/12/09/use-access-and-share-environment-variables-on-netlify).
+The initial `create-remix` command will [create another env var called `SESSION_SECRET`](https://github.com/netlify-templates/kpop-stack/blob/fd68e4de2f4034328481c9b26fa67e298ef20204/remix.init/index.js#L47) that is a random string of 16 characters.
+
+You can add your environment variables to an `.env` file (like shown in the sample [`.env.sample`](./.env.sample)) which will not be committed publicly because it is added to the `.gitignore` file. Or you can add it to your Netlify project environment variables (Site settings/Build & deploy/Environment) as shown in the [Development section](#development) so that they can be [easily shared with teammates](https://www.netlify.com/blog/2021/12/09/use-access-and-share-environment-variables-on-netlify).
 
 <details>
 <summary>Database creation</summary>
@@ -264,6 +246,10 @@ We use [`@testing-library/cypress`](https://testing-library.com/cypress) for sel
 To run these tests in development, run `npm run e2e-test` which will start the dev server for the app as well as the Cypress client.
 
 To other example of Cypress tests specifically on Remix stacks, check out the `cypress` directory in the [Remix Grunge Stack example](https://github.com/remix-run/grunge-stack/tree/main/cypress).
+
+### Type Checking
+
+This project uses TypeScript. It's recommended to get TypeScript set up for your editor to get a really great in-editor experience with type checking and auto-complete. To run type checking across the whole project, run `npm run typecheck`.
 
 ### Linting
 
