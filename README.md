@@ -50,6 +50,8 @@ Not a fan of bits of the stack? Fork it, change it, and use `npx create-remix --
   SUPABASE_ANON_KEY=""
   SESSION_SECRET=""
   ```
+  
+> There is more information about the Supabase variables [in the Database section below](#database). The initial `create-remix` command will [create the `SESSION_SECRET` variable](https://github.com/netlify-templates/kpop-stack/blob/fd68e4de2f4034328481c9b26fa67e298ef20204/remix.init/index.js#L47) which is a random string of 16 characters, so feel free to just set a random 16 chars if not running `remix-create`.
 
   <details>
   <summary>Environment Variable list in project dashboard.</summary>
@@ -110,8 +112,6 @@ You will need these 2 environment variables to connect to your Supabase instance
     ![supabase url location](https://res.cloudinary.com/dzkoxrsdj/image/upload/v1649193610/Screen_Shot_2022-04-05_at_5.18.12_PM_sj7mj8.jpg)
 
   </details>
-
-The initial `create-remix` command will [create another env var called `SESSION_SECRET`](https://github.com/netlify-templates/kpop-stack/blob/fd68e4de2f4034328481c9b26fa67e298ef20204/remix.init/index.js#L47) that is a random string of 16 characters.
 
 You can add your environment variables to an `.env` file (like shown in the sample [`.env.sample`](./.env.sample)) which will not be committed publicly because it is added to the `.gitignore` file. Or you can add it to your Netlify project environment variables (Site settings/Build & deploy/Environment) as shown in the [Development section](#development) so that they can be [easily shared with teammates](https://www.netlify.com/blog/2021/12/09/use-access-and-share-environment-variables-on-netlify).
 
