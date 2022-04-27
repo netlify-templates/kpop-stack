@@ -71,7 +71,9 @@ async function main({ rootDirectory }) {
 
   console.log(
     `
-Setup is almost complete. Follow these steps to finish initialization:
+Setup is almost complete! Follow these steps to finish initialization:
+- Create a new Supabase project and perform the SQL queries described in the README.
+- Add your Supabase credentials (SUPABASE_URL and SUPABASE_ANON_KEY) in your .env file.
 - Run the first build (this generates the server you will run):
   npm run build
 - You're now ready to rock and roll 🤘
