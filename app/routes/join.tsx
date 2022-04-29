@@ -1,14 +1,5 @@
-import {
-  ActionFunction,
-  Form,
-  json,
-  Link,
-  LoaderFunction,
-  MetaFunction,
-  redirect,
-  useActionData,
-  useSearchParams,
-} from "remix";
+import { ActionFunction, json, LoaderFunction, MetaFunction, redirect } from "@remix-run/node";
+import { Form, Link, useActionData, useSearchParams } from "@remix-run/react";
 import { createUserSession, getUserId } from "~/session.server";
 import { createUser, getProfileByEmail } from "~/models/user.server";
 import { validateEmail } from "~/utils";

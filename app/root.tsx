@@ -1,15 +1,5 @@
-import {
-  json,
-  Links,
-  LinksFunction,
-  LiveReload,
-  LoaderFunction,
-  Meta,
-  MetaFunction,
-  Outlet,
-  Scripts,
-  ScrollRestoration,
-} from "remix";
+import { json, LinksFunction, LoaderFunction, MetaFunction } from "@remix-run/node";
+import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from "@remix-run/react";
 
 import tailwindStylesheetUrl from "./styles/tailwind.css";
 import { getUser } from "./session.server";
