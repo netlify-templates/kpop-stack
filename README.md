@@ -50,13 +50,13 @@ Not a fan of bits of the stack? Fork it, change it, and use `npx create-remix --
   SUPABASE_ANON_KEY=""
   SESSION_SECRET=""
   ```
-  
+
 > There is more information about the Supabase variables [in the Database section below](#database). The initial `create-remix` command will [create the `SESSION_SECRET` variable](https://github.com/netlify-templates/kpop-stack/blob/fd68e4de2f4034328481c9b26fa67e298ef20204/remix.init/index.js#L47) which is a random string of 16 characters, so feel free to just set a random 16 chars if not running `remix-create`.
 
   <details>
   <summary>Environment Variable list in project dashboard.</summary>
 
-  ![screenshot of env vars in Netlify UI](https://res.cloudinary.com/dzkoxrsdj/image/upload/v1649265873/CleanShot_2022-04-06_at_13.23.38_2x_sh3hoy.jpg)
+![screenshot of env vars in Netlify UI](https://res.cloudinary.com/dzkoxrsdj/image/upload/v1649265873/CleanShot_2022-04-06_at_13.23.38_2x_sh3hoy.jpg)
 
   </details>
 

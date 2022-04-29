@@ -1,4 +1,5 @@
-import { supabase, User } from "./user.server";
+import type { User } from "./user.server";
+import { supabase } from "./user.server";
 
 export type Note = {
   id: string;
