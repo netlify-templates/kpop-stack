@@ -22,7 +22,6 @@
 
   [plugins.inputs.postBuild]
     enable = true
-    start = 'npm start'
 
   [plugins.inputs]
     enable = false
