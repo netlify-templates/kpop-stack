@@ -5,6 +5,6 @@ describe('empty spec', () => {
 
   it('displays the title text', () => {
     cy.get('h1')
-    .contains('K-POP STACK');
+    .contains('K-Pop Stack');
   })
 })
