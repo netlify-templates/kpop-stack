@@ -23,6 +23,7 @@
   [plugins.inputs.postBuild]
     enable = true
     start = "npx netlify dev"
+    wait-on = "http://localhost:8888"
 
   [plugins.inputs]
     enable = false
