@@ -22,7 +22,6 @@
 
   [plugins.inputs.postBuild]
     enable = true
-    start = "npx netlify dev"
 
   [plugins.inputs]
     enable = false
