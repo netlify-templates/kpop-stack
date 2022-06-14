@@ -19,11 +19,3 @@
 
 [[plugins]]
   package = "netlify-plugin-cypress"
-
-  [plugins.inputs.preBuild]
-    enable = true
-    start = 'npx netlify dev'
-    wait-on = 'http://localhost:8888'
-
-  [plugins.inputs]
-    enable = false
