@@ -14,7 +14,7 @@ invariant(
 );
 invariant(
   supabaseAnonKey,
-  "SUPABASE_URL must be set in your environment variables."
+  "SUPABASE_ANON_KEY must be set in your environment variables."
 );
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
