@@ -86,7 +86,7 @@ To start the Netlify development environment:
 netlify dev
 ```
 
-With Netlify dev you can also:
+With Netlify Dev you can also:
 
 - test functions
 - test redirects
