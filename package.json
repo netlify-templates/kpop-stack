@@ -10,7 +10,7 @@
     "build:remix": "cross-env NODE_ENV=production remix build",
     "dev": "run-p dev:*",
     "dev:css": "npm run generate:css -- --watch",
-    "dev:remix": "cross-env NODE_ENV=development netlify dev",
+    "dev:remix": "remix dev",
     "e2e-test": "cypress run",
     "format": "prettier --write .",
     "generate:css": "npx tailwindcss -o ./app/styles/tailwind.css",
@@ -39,6 +39,7 @@
   "devDependencies": {
     "@remix-run/dev": "^1.4.3",
     "@remix-run/eslint-config": "^1.4.3",
+    "@remix-run/serve": "^1.4.3",
     "@testing-library/cypress": "^8.0.2",
     "@types/bcryptjs": "^2.4.2",
     "@types/eslint": "^8.4.1",
