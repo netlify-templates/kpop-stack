@@ -22,8 +22,11 @@
 
   [plugins.inputs.postBuild]
     enable = true
-    start = 'remix dev'
+    start = 'netlify dev'
     wait-on = 'http://localhost:3000'
+    wait-on-timeout = 60
 
   [plugins.inputs]
     enable = false
+    browser = "chromium"
+    configFile = "cypress.json.ts"
