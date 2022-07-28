@@ -70,12 +70,30 @@ This starts your app in development mode, rebuilding assets on file changes.
 
 ### Running Locally
 
-Running `npm run dev` will also trigger the Netlify local development environment which will pull in all the [environment variables](https://docs.netlify.com/configure-builds/environment-variables/#declare-variables) of your Netlify project. You can learn more about this project's Supabase environment variables in [the Database section below](#database). With Netlify dev you can also:
+The Remix dev server starts your app in development mode, rebuilding assets on file changes. To start the Remix dev server:
+
+```sh
+npm run dev
+```
+
+The Netlify CLI builds a production version of your Remix App Server and splits it into Netlify Functions that run locally. This includes any custom Netlify functions you've developed. The Netlify CLI runs all of this in its development mode.
+
+It will pull in all the [environment variables](https://docs.netlify.com/configure-builds/environment-variables/#declare-variables) of your Netlify project. You can learn more about this project's Supabase environment variables in [the Database section below](#database).
+
+To start the Netlify development environment:
+
+```sh
+netlify dev
+```
+
+With Netlify Dev you can also:
 
 - test functions
 - test redirects
 - share a live session via url with `netlify dev --live`
 - [and more](https://cli.netlify.com/netlify-dev/) :)
+
+Note: When running the Netlify CLI, file changes will rebuild assets, but you will not see the changes to the page you are on unless you do a browser refresh of the page. Due to how the Netlify CLI builds the Remix App Server, it does not support hot module reloading.
 
 ### Relevant code:
 
@@ -99,8 +117,8 @@ You will need these 2 environment variables to connect to your Supabase instance
 
   Found in Settings/API/Project API keys
   <details><summary> See screenshot</summary>
-    
-    ![supabase anon key location](https://res.cloudinary.com/dzkoxrsdj/image/upload/v1649193447/Screen_Shot_2022-04-05_at_5.15.45_PM_ipdgcc.jpg)
+
+  ![supabase anon key location](https://res.cloudinary.com/dzkoxrsdj/image/upload/v1649193447/Screen_Shot_2022-04-05_at_5.15.45_PM_ipdgcc.jpg)
 
   </details>
 
@@ -108,8 +126,8 @@ You will need these 2 environment variables to connect to your Supabase instance
 
   Found in Settings/API/Configuration/URL
   <details><summary> See screenshot</summary>
-    
-    ![supabase url location](https://res.cloudinary.com/dzkoxrsdj/image/upload/v1649193610/Screen_Shot_2022-04-05_at_5.18.12_PM_sj7mj8.jpg)
+
+  ![supabase url location](https://res.cloudinary.com/dzkoxrsdj/image/upload/v1649193610/Screen_Shot_2022-04-05_at_5.18.12_PM_sj7mj8.jpg)
 
   </details>
 
