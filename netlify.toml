@@ -2,10 +2,10 @@
   command = "npm run build"
   functions = "netlify/functions"
   publish = "public"
-  environment = {
-    SUPABASE_URL = "https://damtkcemrxbrvsjiyiqd.supabase.co",
+
+  [build.environment]
+    SUPABASE_URL = "https://damtkcemrxbrvsjiyiqd.supabase.co"
     SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRhbXRrY2VtcnhicnZzaml5aXFkIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NDc0NTM2MjYsImV4cCI6MTk2MzAyOTYyNn0.YMTHZSbBNKwGRO2Y_MBzaOB_FkucHCzUJPk115mlU1M"
-  }
 
 [dev]
   command = "remix watch"
