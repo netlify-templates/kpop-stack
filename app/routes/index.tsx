@@ -9,8 +9,8 @@ export default function Index() {
         <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div className="rounded-md bg-yellow-50 max-w-4xl mx-auto p-4 mb-4">
             <h2 className="text-sm font-medium text-yellow-800">Warning</h2>
-            <p className="mt-2 text-sm">This project uses a shared database between users by default. Be certain to not commit any sensitive information.
-              If you'd like to customize your own database connection be certain to read our <a className="underline" href="https://github.com/netlify-templates/kpop-stack">documentation</a>.
+            <p className="mt-2 text-sm">This demo uses a shared database between users by default. Be certain to not commit any sensitive information.
+              If you'd like to customize your own database connection, read our <a className="underline" href="https://github.com/netlify-templates/kpop-stack">documentation</a>.
             </p>
           </div>
           <div className="relative shadow-xl sm:overflow-hidden sm:rounded-2xl">
