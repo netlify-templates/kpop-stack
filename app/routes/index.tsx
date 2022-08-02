@@ -7,6 +7,12 @@ export default function Index() {
     <main className="relative min-h-screen bg-white sm:flex sm:items-center sm:justify-center">
       <div className="relative sm:pb-16 sm:pt-8">
         <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
+          <div className="rounded-md bg-yellow-50 max-w-4xl mx-auto p-4 mb-4">
+            <h2 className="text-sm font-medium text-yellow-800">Warning</h2>
+            <p className="mt-2 text-sm">This project uses a shared database between users by default. Be certain to not commit any sensitive information.
+              If you'd like to customize your own database connection be certain to read our <a className="underline" href="https://github.com/netlify-templates/kpop-stack">documentation</a>.
+            </p>
+          </div>
           <div className="relative shadow-xl sm:overflow-hidden sm:rounded-2xl">
             <div className="absolute inset-0">
               <img
