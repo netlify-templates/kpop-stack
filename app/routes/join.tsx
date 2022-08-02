@@ -100,6 +100,21 @@ export default function Join() {
   return (
     <div className="flex min-h-full flex-col justify-center">
       <div className="mx-auto w-full max-w-md px-8">
+        <div className="mx-auto mb-4 max-w-4xl rounded-md bg-yellow-50 p-4">
+          <h2 className="text-sm font-medium text-yellow-800">Warning</h2>
+          <p className="mt-2 text-sm">
+            This demo uses a shared database between users by default. Be
+            certain to not commit any sensitive information. If you'd like to
+            customize your own database connection, read our{" "}
+            <a
+              className="underline"
+              href="https://github.com/netlify-templates/kpop-stack"
+            >
+              documentation
+            </a>
+            .
+          </p>
+        </div>
         <Form className="space-y-6" method="post" noValidate>
           <div>
             <label className="text-sm font-medium" htmlFor="email">
