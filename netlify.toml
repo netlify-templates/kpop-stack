@@ -16,17 +16,3 @@
   for = "/build/*"
   [headers.values]
     "Cache-Control" = "public, max-age=31536000, s-maxage=31536000"
-
-[[plugins]]
-  package = "netlify-plugin-cypress"
-
-  [plugins.inputs.postBuild]
-    enable = true
-    start = 'netlify dev'
-    wait-on = 'http://localhost:3000'
-    wait-on-timeout = 60
-
-  [plugins.inputs]
-    enable = false
-    browser = "chromium"
-    configFile = "cypress.json.ts"
