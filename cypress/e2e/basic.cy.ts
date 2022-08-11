@@ -4,8 +4,6 @@ describe('empty spec', () => {
   })
 
   it("should allow you to register and login", () => {
-    // Add explicitly failing test to validate failing status check
-    expect(true).to.equal(false);
     const loginForm = {
       email: 'test@example.com',
       password: 'test1234!',
