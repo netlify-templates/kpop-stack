@@ -26,3 +26,5 @@
 
 [[plugins]]
   package = "netlify-plugin-cypress"
+  [plugins.inputs]
+    record = true
