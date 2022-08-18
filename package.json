@@ -29,8 +29,8 @@
   "dependencies": {
     "@netlify/functions": "^1.2.0",
     "@remix-run/netlify": "^1.6.8",
-    "@remix-run/node": "^1.4.3",
-    "@remix-run/react": "^1.4.3",
+    "@remix-run/node": "^1.6.8",
+    "@remix-run/react": "^1.6.8",
     "@supabase/supabase-js": "^1.31.1",
     "@testing-library/cypress": "^8.0.3",
     "bcryptjs": "^2.4.3",
@@ -40,9 +40,9 @@
     "tiny-invariant": "^1.2.0"
   },
   "devDependencies": {
-    "@remix-run/dev": "^1.4.3",
-    "@remix-run/eslint-config": "^1.4.3",
-    "@remix-run/serve": "^1.4.3",
+    "@remix-run/dev": "^1.6.8",
+    "@remix-run/eslint-config": "^1.6.8",
+    "@remix-run/serve": "^1.6.8",
     "@types/bcryptjs": "^2.4.2",
     "@types/eslint": "^8.4.1",
     "@types/react": "^17.0.24",
