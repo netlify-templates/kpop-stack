@@ -260,6 +260,25 @@ To run these tests in development, run `npm run e2e-test` which will start the d
 
 To other example of Cypress tests specifically on Remix stacks, check out the `cypress` directory in the [Remix Grunge Stack example](https://github.com/remix-run/grunge-stack/tree/main/cypress).
 
+#### Netlify Plugin Cypress
+
+We also use [`netlify-plugin-cypress`](https://github.com/cypress-io/netlify-plugin-cypress) to validate our template is working properly. When you deploy this project as is, cypress tests run automatically on a successful build. If you're interested in removing this functionality you will need to go into the `netlify.toml` and remove the plugins section:
+
+```diff
+[[headers]]
+  for = "/build/*"
+  [headers.values]
+    "Cache-Control" = "public, max-age=31536000, s-maxage=31536000"
+
+- [[plugins]]
+-  package = "netlify-plugin-cypress"
+-  [plugins.inputs]
+-    record = true
+-    group = "Testing Built Site"
+```
+
+You will also need to remove the plugin from the dependencies: `npm uninstall -D netlify-plugin-cypress`
+
 ### Type Checking
 
 This project uses TypeScript. It's recommended to get TypeScript set up for your editor to get a really great in-editor experience with type checking and auto-complete. To run type checking across the whole project, run `npm run typecheck`.
