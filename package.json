@@ -7,7 +7,7 @@
   "scripts": {
     "build": "run-s build:*",
     "build:css": "npm run generate:css -- --minify",
-    "build:remix": "cross-env NODE_ENV=production remix build",
+    "build:remix": "remix build",
     "dev": "run-p dev:*",
     "dev:css": "npm run generate:css -- --watch",
     "dev:remix": "remix dev",
