@@ -1,4 +1,4 @@
-import type { LoaderFunction } from "@remix-run/node";
+import type { LoaderArgs } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { Form, Link, NavLink, Outlet, useLoaderData } from "@remix-run/react";
 import type { Note } from "~/models/note.server";
@@ -10,14 +10,14 @@ type LoaderData = {
   noteListItems: Note[];
 };
 
-export const loader: LoaderFunction = async ({ request }) => {
+export async function loader ({ request }: LoaderArgs) {
   const userId = await requireUserId(request);
   const noteListItems = await getNoteListItems({ userId });
   return json({ noteListItems });
 };
 
 export default function NotesPage() {
-  const data = useLoaderData() as LoaderData;
+  const data = useLoaderData<typeof loader>() as LoaderData;
 
   return (
     <div className="flex h-full min-h-screen flex-col">
