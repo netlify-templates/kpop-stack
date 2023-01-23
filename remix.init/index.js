@@ -26,7 +26,7 @@ async function main({ rootDirectory }) {
   const README_PATH = path.join(rootDirectory, "README.md");
   const PACKAGE_JSON_PATH = path.join(rootDirectory, "package.json");
 
-  const REPLACER = "kpop-stack-template";
+  const REPLACER = "brega-stack-template";
 
   const DIR_NAME = path.basename(rootDirectory);
   const SUFFIX = getRandomString(2);
