@@ -37,6 +37,7 @@
     "tiny-invariant": "^1.2.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.29.2",
     "@remix-run/dev": "^1.6.8",
     "@remix-run/eslint-config": "^1.6.8",
     "@remix-run/serve": "^1.6.8",
