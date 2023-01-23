@@ -19,7 +19,6 @@ Click this button to create a new Github repo, new Netlify project and deploy th
 - [Netlify](https://netlify.com/) deployment to the [Edge](https://www.netlify.com/products/edge) + deploy previews and CI/CD
 - [Supabase](https://supabase.com/) database and authentication
 - [Tailwind](https://tailwindcss.com/) for styling
-- [Cypress](https://cypress.io) end-to-end testing
 - [Prettier](https://prettier.io) code formatting
 - [ESLint](https://eslint.org) linting
 - [TypeScript](https://typescriptlang.org) static typing
@@ -249,35 +248,6 @@ You can also use `netlify deploy` or `netlify deploy --prod` to manually deploy 
 ---
 
 ## Testing
-
-### Cypress
-
-We have set up the basic configuration files for [Cypress](https://go.cypress.io/) End-to-End tests in this project. You'll find those in the `cypress` directory. As you make changes, add to an existing file or create a new file in the `cypress/integrations` directory to test your changes.
-
-We use [`@testing-library/cypress`](https://testing-library.com/cypress) for selecting elements on the page semantically.
-
-To run these tests in development, run `npm run e2e-test` which will start the dev server for the app as well as the Cypress client.
-
-To other example of Cypress tests specifically on Remix stacks, check out the `cypress` directory in the [Remix Grunge Stack example](https://github.com/remix-run/grunge-stack/tree/main/cypress).
-
-#### Netlify Plugin Cypress
-
-We also use [`netlify-plugin-cypress`](https://github.com/cypress-io/netlify-plugin-cypress) to validate our template is working properly. When you deploy this project as is, cypress tests run automatically on a successful build. If you're interested in removing this functionality you will need to go into the `netlify.toml` and remove the plugins section:
-
-```diff
-[[headers]]
-  for = "/build/*"
-  [headers.values]
-    "Cache-Control" = "public, max-age=31536000, s-maxage=31536000"
-
-- [[plugins]]
--  package = "netlify-plugin-cypress"
--  [plugins.inputs]
--    record = true
--    group = "Testing Built Site"
-```
-
-You will also need to remove the plugin from the dependencies: `npm uninstall -D netlify-plugin-cypress`
 
 ### Type Checking
 
