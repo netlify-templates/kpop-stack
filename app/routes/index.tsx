@@ -14,12 +14,15 @@ export default function Index() {
                 src="https://user-images.githubusercontent.com/1952141/214353370-30e8e90f-f68d-42aa-9aa9-c67a354b16fc.png"
                 alt="Singer Falcao lounging on a public bench"
               />
-              <div className="absolute inset-0 bg-[color:rgba(139,92,246,0.5)] mix-blend-multiply" />
+              <div className="absolute inset-0 bg-[color:rgba(60,179,113,0.2)] mix-blend-multiply" />
             </div>
             <div className="lg:pb-18 relative px-4 pt-16 pb-8 sm:px-6 sm:pt-24 sm:pb-14 lg:px-8 lg:pt-32">
-              <h1 className="text-center text-6xl font-extrabold tracking-tight sm:text-8xl lg:text-9xl">
-                <span className="block uppercase text-violet-500 drop-shadow-md">
-                  Brega Stack
+              <h1 className="space-x-8 text-center text-6xl font-extrabold tracking-tight sm:text-8xl lg:text-9xl">
+                <span className="block uppercase text-green-500 drop-shadow-md">
+                  Brega{" "}
+                </span>
+                <span className="block uppercase text-yellow-500 drop-shadow-md">
+                  Stack
                 </span>
               </h1>
               <p className="mx-auto mt-6 max-w-lg text-center text-xl text-white sm:max-w-3xl">
@@ -89,6 +92,11 @@ export default function Index() {
                 src: "https://user-images.githubusercontent.com/1952141/214348155-ee3f8120-30f3-4f4b-871e-c27e12151c0f.png",
                 alt: "Playwright",
                 href: "https://playwright.dev/",
+              },
+              {
+                src: "https://user-images.githubusercontent.com/1500684/157772447-00fccdce-9d12-46a3-8bb4-fac612cdc949.svg",
+                alt: "Vitest",
+                href: "https://vitest.dev",
               },
               {
                 src: "https://user-images.githubusercontent.com/1500684/157772934-ce0a943d-e9d0-40f8-97f3-f464c0811643.svg",

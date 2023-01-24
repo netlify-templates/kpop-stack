@@ -16,6 +16,8 @@
     "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint .",
     "ntl:ci": "netlify dev",
     "start": "cross-env NODE_ENV=production netlify dev",
+    "test": "vitest",
+    "test:coverage": "vitest run --coverage",
     "typecheck": "tsc -b"
   },
   "prettier": {},
@@ -45,14 +47,18 @@
     "@types/eslint": "^8.4.1",
     "@types/react": "^17.0.24",
     "@types/react-dom": "^17.0.9",
+    "@vitejs/plugin-react": "^3.0.1",
     "cross-env": "^7.0.3",
     "eslint": "^8.9.0",
     "eslint-config-prettier": "^8.5.0",
+    "happy-dom": "^8.1.5",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.6.2",
     "prettier-plugin-tailwindcss": "^0.2.0",
     "tailwindcss": "^3.0.23",
-    "typescript": "^4.6.3"
+    "typescript": "^4.6.3",
+    "vite-tsconfig-paths": "^4.0.5",
+    "vitest": "^0.28.1"
   },
   "engines": {
     "node": ">=14"
