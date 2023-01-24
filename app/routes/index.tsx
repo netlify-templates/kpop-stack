@@ -86,6 +86,11 @@ export default function Index() {
                 href: "https://testing-library.com",
               },
               {
+                src: "https://user-images.githubusercontent.com/1952141/214348155-ee3f8120-30f3-4f4b-871e-c27e12151c0f.png",
+                alt: "Playwright",
+                href: "https://playwright.dev/",
+              },
+              {
                 src: "https://user-images.githubusercontent.com/1500684/157772934-ce0a943d-e9d0-40f8-97f3-f464c0811643.svg",
                 alt: "Prettier",
                 href: "https://prettier.io",
