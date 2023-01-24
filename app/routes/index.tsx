@@ -19,7 +19,7 @@ export default function Index() {
             <div className="lg:pb-18 relative px-4 pt-16 pb-8 sm:px-6 sm:pt-24 sm:pb-14 lg:px-8 lg:pt-32">
               <h1 className="text-center text-6xl font-extrabold tracking-tight sm:text-8xl lg:text-9xl">
                 <span className="block uppercase text-violet-500 drop-shadow-md">
-                  K-Pop Stack
+                  Brega Stack
                 </span>
               </h1>
               <p className="mx-auto mt-6 max-w-lg text-center text-xl text-white sm:max-w-3xl">
@@ -84,6 +84,11 @@ export default function Index() {
                 src: "https://user-images.githubusercontent.com/1500684/157772662-92b0dd3a-453f-4d18-b8be-9fa6efde52cf.png",
                 alt: "Testing Library",
                 href: "https://testing-library.com",
+              },
+              {
+                src: "https://user-images.githubusercontent.com/1952141/214348155-ee3f8120-30f3-4f4b-871e-c27e12151c0f.png",
+                alt: "Playwright",
+                href: "https://playwright.dev/",
               },
               {
                 src: "https://user-images.githubusercontent.com/1500684/157772934-ce0a943d-e9d0-40f8-97f3-f464c0811643.svg",
