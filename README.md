@@ -1,8 +1,8 @@
-# Remix K-pop Stack
+# Remix Brega Stack
 
-![k-pop site image](https://res.cloudinary.com/dzkoxrsdj/image/upload/v1648844684/CleanShot_2022-04-01_at_16.23.40_2x_oo3ppe.jpg)
+![Brega site image](https://user-images.githubusercontent.com/1952141/214353746-72e96113-a7a6-456b-b4bf-4a51ceaa104f.png)
 
-Deployed Site: [kpop-stack.netlify.app](https://kpop-stack.netlify.app)
+Deployed Site: [brega-stack.netlify.app](https://brega-stack.netlify.app)
 
 Learn more about [Remix Stacks](https://remix.run/stacks).
 
@@ -160,7 +160,7 @@ You can add your environment variables to an `.env` file (like shown in the samp
 
   ![CleanShot 2022-03-31 at 11 59 29](https://user-images.githubusercontent.com/8431042/161098865-7c790cbc-db76-45b3-aa75-270af70038ae.png)
 
-- Here are the SQL queries used in the K-pop Stack
+- Here are the SQL queries used in the Brega Stack
 
   ```sql
   -- Create public profile table that references our auth.user
@@ -231,7 +231,7 @@ Clicking this button will start the setup for a new project and deployment.
 Clone this repo with the `git clone` command. Then install the [Netlify CLI](https://docs.netlify.com/cli/get-started/) tool and run `netlify init`.
 
 ```sh
-git clone https://github.com/netlify-templates/kpop-stack
+git clone https://github.com/mrisoli/brega-stack
 
 npm install netlify-cli -g # to install the Netlify CLI tool globally
 
