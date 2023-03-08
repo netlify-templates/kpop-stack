@@ -66,7 +66,7 @@ export default function Index() {
           <div className="mt-6 flex flex-wrap justify-center gap-8">
             {[
               {
-                src: "https://user-images.githubusercontent.com/8431042/161311102-fad29f2b-ffd4-4a24-aa4e-92f3fda526a7.svg",
+                src: "https://user-images.githubusercontent.com/43764894/223575102-b784690b-19a6-4e7a-b72c-8ac42c736a71.png",
                 alt: "Netlify",
                 href: "https://netlify.com",
               },
