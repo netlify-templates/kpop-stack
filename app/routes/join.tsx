@@ -71,6 +71,13 @@ export const action: ActionFunction = async ({ request }) => {
 
   const user = await createUser(email, password);
 
+  if (!user) {
+    return json<ActionData>(
+      { errors: { email: "Failed to create user." } },
+      { status: 500 }
+    );
+  }
+
   return createUserSession({
     request,
     userId: user.id,

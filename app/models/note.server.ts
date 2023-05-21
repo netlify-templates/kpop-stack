@@ -25,6 +25,7 @@ export async function createNote({
   const { data, error } = await supabase
     .from("notes")
     .insert([{ title, body, profile_id: userId }])
+    .select()
     .single();
 
   if (!error) {
@@ -40,7 +41,7 @@ export async function deleteNote({
 }: Pick<Note, "id"> & { userId: User["id"] }) {
   const { error } = await supabase
     .from("notes")
-    .delete({ returning: "minimal" })
+    .delete()
     .match({ id, profile_id: userId });
 
   if (!error) {
