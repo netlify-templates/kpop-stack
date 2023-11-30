@@ -1,6 +1,6 @@
 import type {
   LinksFunction,
-  LoaderArgs,
+  LoaderFunctionArgs,
   MetaFunction,
 } from "@remix-run/node";
 import { json } from "@remix-run/node";
@@ -17,14 +17,14 @@ import tailwindStylesheetUrl from "./styles/tailwind.css";
 import { getUser } from "./session.server";
 
 export const meta: MetaFunction = () => {
-  return { title: "New Remix App" };
+  return [{ title: "New Remix App" }];
 };
 
 export const links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: tailwindStylesheetUrl }];
 };
 
-export async function loader({ request }: LoaderArgs) {
+export async function loader({ request }: LoaderFunctionArgs) {
   return json({
     user: await getUser(request),
   });

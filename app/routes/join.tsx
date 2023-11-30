@@ -1,6 +1,6 @@
 import type {
   ActionFunction,
-  LoaderArgs,
+  LoaderFunctionArgs,
   MetaFunction,
 } from "@remix-run/node";
 import { json, redirect } from "@remix-run/node";
@@ -11,9 +11,9 @@ import { validateEmail } from "~/utils";
 import * as React from "react";
 
 export const meta: MetaFunction = () => {
-  return {
+  return [{
     title: "Sign Up",
-  };
+  }];
 };
 
 interface ActionData {
@@ -23,7 +23,7 @@ interface ActionData {
   };
 }
 
-export async function loader({ request }: LoaderArgs) {
+export async function loader({ request }: LoaderFunctionArgs) {
   const userId = await getUserId(request);
   if (userId) return redirect("/");
   return json({});

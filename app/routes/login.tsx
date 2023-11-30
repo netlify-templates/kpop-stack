@@ -1,7 +1,7 @@
 import React from "react";
 import type {
   ActionFunction,
-  LoaderArgs,
+  LoaderFunctionArgs,
   MetaFunction,
 } from "@remix-run/node";
 import { json, redirect } from "@remix-run/node";
@@ -11,9 +11,9 @@ import { createUserSession, getUserId } from "~/session.server";
 import { validateEmail } from "~/utils";
 
 export const meta: MetaFunction = () => {
-  return {
+  return [{
     title: "Login",
-  };
+  }];
 };
 
 interface ActionData {
@@ -23,7 +23,7 @@ interface ActionData {
   };
 }
 
-export async function loader({ request }: LoaderArgs) {
+export async function loader({ request }: LoaderFunctionArgs) {
   const userId = await getUserId(request);
   if (userId) return redirect("/");
   return json({});
