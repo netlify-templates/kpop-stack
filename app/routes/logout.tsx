@@ -8,4 +8,4 @@ export const action: ActionFunction = async ({ request }) => {
 
 export async function loader() {
   return redirect("/");
-};
+}

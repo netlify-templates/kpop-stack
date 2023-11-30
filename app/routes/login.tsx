@@ -27,7 +27,7 @@ export async function loader({ request }: LoaderArgs) {
   const userId = await getUserId(request);
   if (userId) return redirect("/");
   return json({});
-};
+}
 
 export const action: ActionFunction = async ({ request }) => {
   const formData = await request.formData();

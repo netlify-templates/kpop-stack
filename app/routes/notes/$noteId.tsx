@@ -20,7 +20,7 @@ export async function loader({ request, params }: LoaderArgs) {
   }
 
   return json({ note });
-};
+}
 
 export const action: ActionFunction = async ({ request, params }) => {
   const userId = await requireUserId(request);
