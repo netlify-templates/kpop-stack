@@ -118,16 +118,16 @@ You will need these 2 environment variables to connect to your Supabase instance
   Found in Settings/API/Project API keys
   <details><summary> See screenshot</summary>
 
-  ![supabase anon key location](https://res.cloudinary.com/dzkoxrsdj/image/upload/v1649193447/Screen_Shot_2022-04-05_at_5.15.45_PM_ipdgcc.jpg)
+  ![supabase anon key location]()
 
   </details>
 
 - `SUPABASE_URL`:
 
-  Found in Settings/API/Configuration/URL
+  Found in Settings/API/Project URL
   <details><summary> See screenshot</summary>
 
-  ![supabase url location](https://res.cloudinary.com/dzkoxrsdj/image/upload/v1649193610/Screen_Shot_2022-04-05_at_5.18.12_PM_sj7mj8.jpg)
+  ![supabase url location]()
 
   </details>
 
@@ -208,9 +208,9 @@ You can add your environment variables to an `.env` file (like shown in the samp
 
   ![CleanShot 2022-03-31 at 12 04 31](https://user-images.githubusercontent.com/8431042/161099881-79315a5f-af33-44fc-aee4-daf9a506f23f.png)
 
-- Lastly, you will need to go to 'Authentication and Settings', and switch off "Enable email confirmations" for the project
+- Lastly, you will need to go to Authentication/Providers/Email and disable the 'Confirm email' option
 
-  ![CleanShot 2022-03-31 at 12 07 47](https://user-images.githubusercontent.com/8431042/161100637-11b7a1f0-9e25-4f1b-8fec-46ebaf047063.png)
+  ![CleanShot 2022-03-31 at 12 07 47]()
 
 </details>
 
