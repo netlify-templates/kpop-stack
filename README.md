@@ -56,7 +56,8 @@ Not a fan of bits of the stack? Fork it, change it, and use `npx create-remix --
   <details>
   <summary>Environment Variable list in project dashboard.</summary>
 
-![screenshot of env vars in Netlify UI]()
+![screenshot of env vars in Netlify UI](https://github.com/ixartz/kpop-stack/assets/5209935/f9d9fb65-4f86-47f3-8871-574d9bd9c59c)
+
 
   </details>
 
