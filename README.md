@@ -58,7 +58,6 @@ Not a fan of bits of the stack? Fork it, change it, and use `npx create-remix --
 
 ![screenshot of env vars in Netlify UI](https://github.com/ixartz/kpop-stack/assets/5209935/f9d9fb65-4f86-47f3-8871-574d9bd9c59c)
 
-
   </details>
 
 - Start dev server:
@@ -119,7 +118,7 @@ You will need these 2 environment variables to connect to your Supabase instance
   Found in Settings/API/Project API keys
   <details><summary> See screenshot</summary>
 
-  ![supabase anon key location]()
+  ![supabase anon key location](https://res.cloudinary.com/dzkoxrsdj/image/upload/v1649193447/Screen_Shot_2022-04-05_at_5.15.45_PM_ipdgcc.jpg)
 
   </details>
 
