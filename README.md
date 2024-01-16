@@ -128,7 +128,8 @@ You will need these 2 environment variables to connect to your Supabase instance
   Found in Settings/API/Project URL
   <details><summary> See screenshot</summary>
 
-  ![supabase url location]()
+  ![supabase url location](https://github.com/ixartz/kpop-stack/assets/5209935/72859c6a-4f71-4d1a-bdc4-6c3ad756838c)
+
 
   </details>
 
