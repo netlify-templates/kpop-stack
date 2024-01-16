@@ -210,7 +210,7 @@ You can add your environment variables to an `.env` file (like shown in the samp
 
 - Lastly, you will need to go to Authentication/Providers/Email and disable the 'Confirm email' option
 
-  ![CleanShot 2022-03-31 at 12 07 47]()
+![confirm-email](https://github.com/ixartz/kpop-stack/assets/5209935/f29c7a72-7ab8-4fb1-8201-55ee8559cc44)
 
 </details>
 
