@@ -1,13 +1,10 @@
+import { config } from "@netlify/remix-adapter";
+
 /** @type {import('@remix-run/dev').AppConfig} */
-module.exports = {
-  serverBuildTarget: "netlify",
-  server:
-    process.env.NETLIFY || process.env.NETLIFY_LOCAL
-      ? "./server.js"
-      : undefined,
-  ignoredRouteFiles: ["**/.*"],
-  // appDirectory: "app",
-  // assetsBuildDirectory: "public/build",
-  // serverBuildPath: ".netlify/functions-internal/server.js",
-  // publicPath: "/build/",
+export default {
+  ...(process.env.NODE_ENV === "production" ? config : undefined),
+  // This works out of the box with the Netlify adapter, but you can
+  // add your own custom config here if you want to.
+  //
+  // See https://remix.run/file-conventions/remix-config
 };

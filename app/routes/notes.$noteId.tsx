@@ -1,4 +1,4 @@
-import type { ActionFunction, LoaderArgs } from "@remix-run/node";
+import type { ActionFunction, LoaderFunctionArgs } from "@remix-run/node";
 import { json, redirect } from "@remix-run/node";
 import { Form, useLoaderData } from "@remix-run/react";
 import type { Note } from "~/models/note.server";
@@ -10,7 +10,7 @@ type LoaderData = {
   note: Note;
 };
 
-export async function loader({ request, params }: LoaderArgs) {
+export async function loader({ request, params }: LoaderFunctionArgs) {
   const userId = await requireUserId(request);
   invariant(params.noteId, "noteId not found");
 
@@ -20,7 +20,7 @@ export async function loader({ request, params }: LoaderArgs) {
   }
 
   return json({ note });
-};
+}
 
 export const action: ActionFunction = async ({ request, params }) => {
   const userId = await requireUserId(request);

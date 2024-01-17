@@ -56,7 +56,7 @@ Not a fan of bits of the stack? Fork it, change it, and use `npx create-remix --
   <details>
   <summary>Environment Variable list in project dashboard.</summary>
 
-![screenshot of env vars in Netlify UI](https://res.cloudinary.com/dzkoxrsdj/image/upload/v1649265873/CleanShot_2022-04-06_at_13.23.38_2x_sh3hoy.jpg)
+![screenshot of env vars in Netlify UI](https://github.com/ixartz/kpop-stack/assets/5209935/f9d9fb65-4f86-47f3-8871-574d9bd9c59c)
 
   </details>
 
@@ -124,10 +124,11 @@ You will need these 2 environment variables to connect to your Supabase instance
 
 - `SUPABASE_URL`:
 
-  Found in Settings/API/Configuration/URL
+  Found in Settings/API/Project URL
   <details><summary> See screenshot</summary>
 
-  ![supabase url location](https://res.cloudinary.com/dzkoxrsdj/image/upload/v1649193610/Screen_Shot_2022-04-05_at_5.18.12_PM_sj7mj8.jpg)
+  ![supabase url location](https://github.com/ixartz/kpop-stack/assets/5209935/72859c6a-4f71-4d1a-bdc4-6c3ad756838c)
+
 
   </details>
 
@@ -208,9 +209,9 @@ You can add your environment variables to an `.env` file (like shown in the samp
 
   ![CleanShot 2022-03-31 at 12 04 31](https://user-images.githubusercontent.com/8431042/161099881-79315a5f-af33-44fc-aee4-daf9a506f23f.png)
 
-- Lastly, you will need to go to 'Authentication and Settings', and switch off "Enable email confirmations" for the project
+- Lastly, you will need to go to Authentication/Providers/Email and disable the 'Confirm email' option
 
-  ![CleanShot 2022-03-31 at 12 07 47](https://user-images.githubusercontent.com/8431042/161100637-11b7a1f0-9e25-4f1b-8fec-46ebaf047063.png)
+![confirm-email](https://github.com/ixartz/kpop-stack/assets/5209935/f29c7a72-7ab8-4fb1-8201-55ee8559cc44)
 
 </details>
 

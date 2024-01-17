@@ -1,6 +1,5 @@
 [build]
   command = "npm run build"
-  functions = "netlify/functions"
   publish = "public"
 
   [build.environment]
@@ -11,7 +10,7 @@
     TERM = "xterm"
 
 [dev]
-  command = "remix watch"
+  command = "npm run dev"
   port = 3000
 
 [[redirects]]
