@@ -46,7 +46,7 @@
     "@types/react": "^18.2.39",
     "@types/react-dom": "^18.2.17",
     "cross-env": "^7.0.3",
-    "eslint": "^8.54.0",
+    "eslint": "^10.0.0",
     "eslint-config-prettier": "^9.0.0",
     "netlify-plugin-cypress": "^2.2.1",
     "npm-run-all2": "^5.0.0",
